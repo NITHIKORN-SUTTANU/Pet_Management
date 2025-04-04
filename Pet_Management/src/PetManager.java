@@ -28,9 +28,15 @@ class PetManager {
             while ((line = br.readLine()) != null) {
                 String[] details = line.split(",");
                 if (details[2].equals("Dog")) {
-                    pets.add(new Dog(details[0], Integer.parseInt(details[1]), details[3], details[4], details[5]));
+                    // Check if the file contains a care message (7th field)
+                    Dog dog = new Dog(details[0], Integer.parseInt(details[1]), details[3], details[4], details[5]);
+                    dog.setCareMessage(details.length > 6 ? details[6] : "");  // Set care message if it exists
+                    pets.add(dog);
                 } else if (details[2].equals("Cat")) {
-                    pets.add(new Cat(details[0], Integer.parseInt(details[1]), details[3], details[4], details[5]));
+                    // Check if the file contains a care message (7th field)
+                    Cat cat = new Cat(details[0], Integer.parseInt(details[1]), details[3], details[4], details[5]);
+                    cat.setCareMessage(details.length > 6 ? details[6] : "");  // Set care message if it exists
+                    pets.add(cat);
                 }
             }
         } catch (IOException e) {
@@ -44,18 +50,18 @@ class PetManager {
                 if (pet instanceof Dog) {
                     Dog dog = (Dog) pet;
                     bw.write(dog.getName() + "," + dog.getAge() + "," + dog.getSpecies() + "," + dog.getBreed() + ","
-                            + dog.getOwnerName() + "," + dog.getColor());
+                            + dog.getOwnerName() + "," + dog.getColor() + "," + dog.getCareMessage());  // Save care message
                 } else if (pet instanceof Cat) {
                     Cat cat = (Cat) pet;
                     bw.write(cat.getName() + "," + cat.getAge() + "," + cat.getSpecies() + "," + cat.getBreed() + ","
-                            + cat.getOwnerName() + "," + cat.getColor());
+                            + cat.getOwnerName() + "," + cat.getColor() + "," + cat.getCareMessage());  // Save care message
                 }
-                bw.newLine();
+                bw.newLine();  // Write a new line for each pet
             }
         } catch (IOException e) {
             System.out.println("Error saving pets data.");
         }
-    }
+    }    
 
     public void deletePet(String petName) {
         Pet petToDelete = null;
@@ -70,7 +76,7 @@ class PetManager {
             pets.remove(petToDelete);
             savePetsToFile();
             System.out.println();
-            System.out.println("Pet " + petName + " has been deleted.");
+            System.out.println("Pet named " + "\033[4m" + petName + "\033[0m" + " has been deleted.");
         } else {
             System.out.println();
             System.out.println("Pet with the name " + "\"" + petName + "\"" +" is not found.");

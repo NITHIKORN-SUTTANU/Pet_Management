@@ -8,14 +8,14 @@ public class PetCareManagement {
         boolean running = true;
 
         while (running) {
-            System.out.println("\nPet Care Management System");
+            System.out.println("\n\033[1;95mPet Care Management System\033[0m");
             System.out.println("1. Add Pet");
             System.out.println("2. View All Pets");
             System.out.println("3. Search Pet");
             System.out.println("4. Care for Pet");
             System.out.println("5. Delete Pet");
             System.out.println("6. Quit");
-            System.out.print("Choose an option: ");
+            System.out.print("\033[1mChoose an option:\033[0m ");
 
             int option = 0;
             try {
@@ -130,7 +130,7 @@ public class PetCareManagement {
                         manager.addPet(new Cat(name, age, breed, owner, color));
                     }
                     System.out.println();
-                    System.out.println(name + " has been added.");
+                    System.out.println("\033[4m" + name + "\033[0m" + " has been added.");
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     break;
                 case 2:
@@ -162,8 +162,9 @@ public class PetCareManagement {
                         System.out.print("Enter a personalized care message for " + petNameToCare + ": ");
                         String careMessage = sc.nextLine();
                         petToCare.setCareMessage(careMessage);
+                        manager.savePetsToFile();
                         System.out.println();
-                        System.out.println("Care message set for " + petNameToCare + ": " + careMessage);
+                        System.out.println("Care message set for " + "\033[4m" + petNameToCare + "\033[0m" + ": " + careMessage);
                     } else {
                         System.out.println();
                         System.out.println("Pet is not found.");
@@ -179,7 +180,7 @@ public class PetCareManagement {
                     break;
                 case 6:
                     running = false;
-                    System.out.println("Exit the system.");
+                    System.out.println("\033[31m-----Exit the system.-----\033[0m");
                     break;
                 default:
                     System.out.println();
