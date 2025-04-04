@@ -12,7 +12,7 @@ public class PetCareManagement {
             System.out.println("1. Add Pet");
             System.out.println("2. View All Pets");
             System.out.println("3. Search Pet");
-            System.out.println("4. Care for Pet");
+            System.out.println("4. Add Care Message for Pet");
             System.out.println("5. Delete Pet");
             System.out.println("6. Quit");
             System.out.print("\033[1mChoose an option:\033[0m ");
