@@ -17,6 +17,7 @@ class PetManager {
             for (Pet pet : pets) {
                 System.out.println(pet);
                 pet.displayCareMessage(); // Display care message for each pet
+                System.out.println();
             }
         }
     }
@@ -68,9 +69,11 @@ class PetManager {
         if (petToDelete != null) {
             pets.remove(petToDelete);
             savePetsToFile();
+            System.out.println();
             System.out.println("Pet " + petName + " has been deleted.");
         } else {
-            System.out.println("Pet with the name " + petName + " is not found.");
+            System.out.println();
+            System.out.println("Pet with the name " + "\"" + petName + "\"" +" is not found.");
         }
     }
 

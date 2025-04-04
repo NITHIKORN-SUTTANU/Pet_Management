@@ -1,1 +1,6 @@
-baily,2,Dog,golden,Tar,gold
+Baily,1,Dog,Golden ,Tar,White
+Gigi,3,Cat,Persia,Tar,black
+Dummy,4,Dog,Bulldog,Tar,black
+Henry,12,Dog,Golden,Tar,white
+Ronnie,3,Cat,Persia,Tar,white
+johnny,12,Cat,Persia,Tar Hooker,white
