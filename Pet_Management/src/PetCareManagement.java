@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class PetCareManagement {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // Keyboard input (Scanner) allows real-time user interaction
         PetManager manager = new PetManager();
         manager.loadPetsFromFile();
         boolean running = true;
@@ -18,7 +18,7 @@ public class PetCareManagement {
             System.out.print("\033[1mChoose an option:\033[0m ");
 
             int option = 0;
-            try {
+            try {   // use try-catch prevents the system from crashing due to invalid input
                 option = Integer.parseInt(sc.nextLine()); // Read input as String, then convert it to int
             } catch (NumberFormatException e) {
                 System.out.println();
@@ -39,7 +39,7 @@ public class PetCareManagement {
                             name = sc.nextLine();
                             if (!name.matches("[a-zA-Z ]+")) {
                                 throw new InvalidPetInputException("Pet name should only contain letters and spaces.");
-                            }
+                            }   // Custom exceptions to provide specific and readable error messages.
                             validName = true;
                         } catch (InvalidPetInputException e) {
                             System.out.println(e.getMessage());
@@ -137,12 +137,12 @@ public class PetCareManagement {
                     System.out.println("\033[4m" + name + "\033[0m" + " has been added.");
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     break;
-                case 2:
+                case 2: // display pets
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     manager.displayPets();
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     break;
-                case 3:
+                case 3: // search pets
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     System.out.print("Enter the name of the pet to search: ");
                     String petNameToSearch = sc.nextLine();
@@ -157,7 +157,7 @@ public class PetCareManagement {
                     }
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     break;
-                case 4:
+                case 4: // add care message
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     System.out.print("Enter the name of the pet to care for: ");
                     String petNameToCare = sc.nextLine();
@@ -175,14 +175,14 @@ public class PetCareManagement {
                     }
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     break;
-                case 5:
+                case 5: // delete pets
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     System.out.print("Enter the name of the pet to delete: ");
                     String petNameToDelete = sc.nextLine();
                     manager.deletePet(petNameToDelete);
                     System.out.println("\033[32m------------------------------------------------------------\033[0m");
                     break;
-                case 6:
+                case 6: // exit
                     running = false;
                     System.out.println("\033[31m-----Exit the system.-----\033[0m");
                     break;

@@ -3,6 +3,7 @@ public class Dog extends Pet {
         super(name, age, "Dog", breed, ownerName, color); //use "super" to call superclass(Pet) constructor
     }
 
+    // This is method overriding – an example of polymorphism where each pet type provides a specific care message.
     @Override
     public void displayCareMessage() {
         System.out.println("Dog Care: " + getCareMessage());

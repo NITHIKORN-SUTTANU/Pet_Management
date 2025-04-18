@@ -50,6 +50,7 @@ public abstract class Pet {
     }
 
     // Abstract method for displaying care message.
+    // Polymorphism allows each subclass (Dog or Cat) to implement its own version of displayCareMessage(),
     public abstract void displayCareMessage();
 
     public String toString() {

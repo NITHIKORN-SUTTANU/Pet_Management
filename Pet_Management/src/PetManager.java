@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 
 class PetManager {
+    // Using collections like ArrayList makes it easy to store, manage, and iterate over dynamic data (multiple pets),
+    // which is more flexible than using arrays.
     private List<Pet> pets = new ArrayList<>();
     private static final String FILE_NAME = "pets.txt";
 
@@ -23,6 +25,8 @@ class PetManager {
     }
 
     public void loadPetsFromFile() {
+        // Using file reading allows data persistence – pets added will be saved even after the program ends.
+        // This is important in real-world apps where user data must be stored and retrieved later.
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -45,6 +49,8 @@ class PetManager {
     }
 
     public void savePetsToFile() {
+        // Using file writing ensures that the latest data is saved whenever a pet is added, deleted, or updated.
+        // This makes the system reliable and consistent between sessions.
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Pet pet : pets) {
                 if (pet instanceof Dog) {
