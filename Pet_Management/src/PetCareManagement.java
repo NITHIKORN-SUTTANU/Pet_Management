@@ -19,7 +19,7 @@ public class PetCareManagement {
 
             int option = 0;
             try {
-                option = Integer.parseInt(sc.nextLine()); // Read input as String, then convert
+                option = Integer.parseInt(sc.nextLine()); // Read input as String, then convert it to int
             } catch (NumberFormatException e) {
                 System.out.println();
                 System.out.println("Invalid input! Please enter a number (1-6).");
@@ -53,7 +53,11 @@ public class PetCareManagement {
                         try {
                             System.out.print("Enter Age: ");
                             age = Integer.parseInt(sc.nextLine());
-                            validAge = true;
+                            if (age < 0) {
+                                System.out.println("Invalid age! Please enter a valid number for age (integer).");
+                            } else {
+                                validAge = true;
+                            }
                         } catch (NumberFormatException e) {
                             System.out.println("Invalid age! Please enter a valid number for age (integer).");
                         }

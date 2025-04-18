@@ -5,7 +5,7 @@ public abstract class Pet {
     private String breed;
     private String ownerName;
     private String color;
-    private String careMessage; // Added careMessage to store care info
+    private String careMessage; // careMessage to store care info
 
     public Pet(String name, int age, String species, String breed, String ownerName, String color) {
         this.name = name;
